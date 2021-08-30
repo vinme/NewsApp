@@ -84,8 +84,9 @@ export default {
     object-fit: cover;
   filter: brightness(.4);
     }
-a:link {
+a:link, a:visited {
   color: #FFFFFF;
   text-decoration: none;
 }
+
 </style>
