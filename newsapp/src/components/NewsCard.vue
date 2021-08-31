@@ -23,7 +23,7 @@
             >
     <v-icon>mdi-arrow-right</v-icon>
     </v-btn>
-    <v-card-title><a :href="'#/newsdetail/'+article.title">{{article.title}}</a></v-card-title>
+    <v-card-title><a :href="'#/newsdetail/'+article.title">{{article.title | excerpt}}</a></v-card-title>
     <transition name="slide-fade">
         <v-card-subtitle v-if="hover"><a :href="'#/newsdetail/'+article.title">{{article.description}}</a></v-card-subtitle>
         </transition>

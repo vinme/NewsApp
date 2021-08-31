@@ -70,7 +70,8 @@
 
     <v-main>
       <!--  -->
-    <router-view></router-view>
+    
+    <router-view :apiKey="apiKey"></router-view>
     <footer-view></footer-view>
     </v-main>
 
@@ -82,15 +83,16 @@
 import HomePage from '../views/Home.vue'
 import FooterView from './FooterView.vue'
 export default {
-  components: { HomePage, FooterView },
+    props: ['apiKey'],
+    components: { HomePage, FooterView },
 
-  data: () => ({ 
-    drawer: null,
-    items: [
-          { title: 'Home', icon: 'mdi-view-dashboard', to: '/' },
-          { title: 'Recent', icon: 'mdi-help-box', to: '/about' },
-        ],
-     }),
+    data: () => ({ 
+        drawer: null,
+        items: [
+            { title: 'Home', icon: 'mdi-view-dashboard', to: '/' },
+            { title: 'Recent', icon: 'mdi-help-box', to: '/about' },
+            ],
+        }),
 
 }
 </script>
