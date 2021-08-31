@@ -32,7 +32,7 @@
       <v-list-item>
         <v-list-item-content>
           <v-list-item-title class="title">
-              <v-img lazy-src="../assets/images/logo.png" src="../assets/images/logo.png" />
+              <a href="/"><v-img lazy-src="../assets/images/logo.png" src="../assets/images/logo.png" /></a>
           </v-list-item-title>
           <v-list-item-subtitle>
             24/7 News Updates
@@ -70,20 +70,24 @@
 
     <v-main>
       <!--  -->
-     <router-view></router-view>
+    <router-view></router-view>
+    <footer-view></footer-view>
     </v-main>
+
   </v-app>
+  
 </template>
 
 <script>
 import HomePage from '../views/Home.vue'
+import FooterView from './FooterView.vue'
 export default {
-  components: { HomePage },
+  components: { HomePage, FooterView },
 
   data: () => ({ 
     drawer: null,
     items: [
-          { title: 'Dashboard', icon: 'mdi-view-dashboard', to: '/' },
+          { title: 'Home', icon: 'mdi-view-dashboard', to: '/' },
           { title: 'Recent', icon: 'mdi-help-box', to: '/about' },
         ],
      }),
