@@ -42,7 +42,7 @@
       <v-btn
         color="orange"
         text
-       
+        :to="'/newsdetail/'+this.article.title"
       >
         Open
       </v-btn>
