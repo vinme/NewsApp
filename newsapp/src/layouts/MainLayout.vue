@@ -70,13 +70,13 @@
 
     <v-main>
       <!--  -->
-      <home-page/>
+     <router-view></router-view>
     </v-main>
   </v-app>
 </template>
 
 <script>
-import HomePage from '../pages/HomePage.vue'
+import HomePage from '../views/Home.vue'
 export default {
   components: { HomePage },
 

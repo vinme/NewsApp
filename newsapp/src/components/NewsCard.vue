@@ -23,45 +23,79 @@
             >
     <v-icon>mdi-arrow-right</v-icon>
     </v-btn>
-    <v-card-title v-card-title><a href="/news-detail/1">{{article.title}}</a></v-card-title>
+    <v-card-title><a :href="'#/newsdetail/'+article.title">{{article.title}}</a></v-card-title>
     <transition name="slide-fade">
-        <v-card-subtitle v-if="hover"><a href="/news-detail/1">{{article.description}}</a></v-card-subtitle>
+        <v-card-subtitle v-if="hover"><a :href="'#/newsdetail/'+article.title">{{article.description}}</a></v-card-subtitle>
         </transition>
 
     </v-img>
 
-    
     <v-card-actions>
       <v-btn
         color="orange"
         text
+         @click="editItem(article)"
       >
-        Share
+        Edit
       </v-btn>
 
       <v-btn
         color="orange"
         text
+       
       >
-        Explore
+        Open
       </v-btn>
+     
     </v-card-actions>
 
-
+<edit-headline
+        :editedId="editedId"
+        :dialog.sync="dialog"
+        @close-dialog="
+          editedId = null;
+          dialog = false;
+        "
+      />
 
   </v-card>
+
+
+
 
 </template>
 
 <script>
+import EditHeadline from '../components/EditHeadline.vue'
 export default {
     name: 'NewsCard',
     props: ['article'],
     data() {
     return {
-      hover: false,
+        hover: false,
+        editHeadline: false,
+        dialog: false,
+        myDialogVisible: false,
+        editedId: null,
+        dialog: false,
     };
-  }
+  },
+  components: {
+    EditHeadline
+  },
+  methods: {
+        addItem() {
+        this.dialog = true;
+        },
+        editItem(item) {
+        this.editedId = item.title;
+        this.dialog = true;
+        },
+        updateheadline(){
+            alert('h ah aha');
+        }
+    }
+
 }
 </script>
 

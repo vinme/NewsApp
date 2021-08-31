@@ -1,19 +1,19 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 import Home from '../views/Home.vue';
-import NewsDetail from '../components/NewsDetail.vue';
+import NewsDetail from '../views/NewsDetail.vue';
 
 Vue.use(VueRouter)
 
 const routes = [
   {
     path: '/',
-    name: 'Home',
+    name: 'HomePage',
     component: Home
   },
   {
-    path: '/news/:id',
-    name: 'News',
+    path: '/newsdetail/:id',
+    name: 'NewsDetail',
     component: NewsDetail
   },
   {
