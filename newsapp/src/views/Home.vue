@@ -12,6 +12,11 @@
         absolute
       ></v-progress-circular>
     </div>
+        <v-row class="text-center" v-if="getErrors">
+          <v-col cols="12" md="8">
+              {{getErrors}}
+          </v-col>
+      </v-row>
     <v-container>
       <v-row>
         <v-col v-for="article in getArticles" :key="article.title" cols="4">
@@ -40,6 +45,9 @@ export default {
     getArticles() {
       return this.$store.getters.newsHeadlines;
     },
+    getErrors() {
+        return this.$store.getters.errorMessage;
+    }
   },
 };
 </script>

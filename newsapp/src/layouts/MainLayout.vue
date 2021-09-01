@@ -42,8 +42,9 @@
     <v-main>
       <!--  -->
       <router-view :apiKey="apiKey"></router-view>
-      <footer-view></footer-view>
+      
     </v-main>
+    <footer-view></footer-view>
   </v-app>
 </template>
 
