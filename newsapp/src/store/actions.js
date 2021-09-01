@@ -13,7 +13,7 @@ export default {
         context.commit("setSource", response.body);
       })
       .catch(function(error) {
-        context.commit("setErrorMessage", "Error retrieving data");
+        context.commit("setErrorMessage", "Error retrieving data.");
       });
   },
 
@@ -26,7 +26,7 @@ export default {
         context.commit("setNewsHeadlines", response.body);
       })
       .catch(function(error) {
-        context.commit("setErrorMessage", "Error retrieving data");
+        context.commit("setErrorMessage", "Error retrieving data.");
       });
   },
 };
