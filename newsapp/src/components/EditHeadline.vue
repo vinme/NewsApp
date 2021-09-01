@@ -18,7 +18,7 @@
           <v-text-field
             label="Headline"
             outlined
-            :value="editedId"
+            v-model="editedId"
           ></v-text-field>
         </v-col>
       </v-card-text>
@@ -44,7 +44,7 @@ export default {
     },
   methods: {
     update() {
-      this.$emit("updateheadline");
+      this.$emit("updateheadline", this.editedId);
     },
     close() {
       this.$emit("close-dialog");

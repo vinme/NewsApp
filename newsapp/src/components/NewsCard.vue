@@ -56,6 +56,7 @@
           editedId = null;
           dialog = false;
         "
+        @updateheadline = "updatedheadline"
       />
 
   </v-card>
@@ -67,6 +68,7 @@
 
 <script>
 import EditHeadline from '../components/EditHeadline.vue'
+import store from '../store'
 export default {
     name: 'NewsCard',
     props: ['article'],
@@ -91,10 +93,15 @@ export default {
         this.editedId = item.title;
         this.dialog = true;
         },
-        updateheadline(){
-            alert('h ah aha');
-        }
-    }
+        updatedheadline(val){
+            const setTitle = {
+                newTitle: val,
+                url: this.article.url 
+            };
+            store.commit('setTitle', setTitle);
+    },
+    
+  }
 
 }
 </script>

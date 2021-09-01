@@ -23,6 +23,7 @@
 </template>
 
 <script>
+import store from '../store'
 export default {
     computed: {
     article () {
@@ -32,7 +33,7 @@ export default {
         {
           text: 'Home',
           disabled: false,
-          href: '/',
+          to: '/',
         },
         {
           text: title,
@@ -40,6 +41,12 @@ export default {
           href: 'breadcrumbs_link_1',
         }
       ]
+        var url = 'http://localhost:8080/#/' + title;
+        var history = {
+            url: url,
+            name: title,
+        };
+        store.commit('addToHistory', history);
         return article;
     },
   },

@@ -266,14 +266,17 @@ export default new Vuex.Store({
           "publishedAt": "2021-08-30T10:00:03Z",
           "content": "BRUSSELS (AP) The European Union plans to recommend that its 27 nations reinstate restrictions on tourists from the U.S. because of rising coronavirus infection levels there, EU diplomats said Monday… [+1649 chars]"
         }
-      ]
+      ],
+      "history": []
   },
   mutations: {
     setTitle: (state, payload) => {
-        const { title, url } = payload
-        const article = state.articles.find(p => p.url === url)
-        article.title = title
-      }
+        state.articles.find(p => p.url === payload.url).title = payload.newTitle;
+      },
+    addToHistory: (state, payload) => {
+        state.history.push(payload);
+        console.log(state.history);
+    }
   },
   actions: {
   },

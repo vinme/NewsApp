@@ -24,12 +24,7 @@ export default {
   },
   components: { NewsCard },
   methods: {
-  updateMessage: async function () {
-    this.message = 'updated'
-    console.log(this.$el.textContent) // => 'not updated'
-    await this.$nextTick()
-    console.log(this.$el.textContent) // => 'updated'
-  }
+      
   }    
 }
 </script>
