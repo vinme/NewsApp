@@ -7,14 +7,10 @@
   >
     <v-card>
       <v-card-title>
-          Edit Headline
+        Edit Headline
       </v-card-title>
       <v-card-text>
-        <v-col
-          cols="12"
-          sm="12"
-          md="12"
-        >
+        <v-col cols="12" sm="12" md="12">
           <v-text-field
             label="Headline"
             outlined
@@ -37,11 +33,11 @@
 
 <script>
 export default {
-    name: "EditHeadline",
-    props: {
+  name: "EditHeadline",
+  props: {
     editedId: String,
     dialog: Boolean,
-    },
+  },
   methods: {
     update() {
       this.$emit("updateheadline");

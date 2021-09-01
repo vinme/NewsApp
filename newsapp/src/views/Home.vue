@@ -1,39 +1,45 @@
 <template>
-      <v-container>
-        <v-row>
-          <v-col
-            v-for="article in articles"
-            :key="article.title"
-            cols="4"
-          >
-            <news-card :article="article" />
-            
-          </v-col>
-        </v-row>
-      </v-container>
+  <v-container>
+    <div class="text-center">
+      <br />
+      <v-progress-circular
+        v-if="isLoading"
+        :size="50"
+        :width="7"
+        color="amber"
+        indeterminate
+        class="center"
+        absolute
+      ></v-progress-circular>
+    </div>
+    <v-container>
+      <v-row>
+        <v-col v-for="article in getArticles" :key="article.title" cols="4">
+          <news-card :article="article" />
+        </v-col>
+      </v-row>
+    </v-container>
+  </v-container>
 </template>
-
 <script>
-import NewsCard from '../components/NewsCard.vue';
-
+import NewsCard from "../components/NewsCard.vue";
 export default {
-  computed: {
-    articles () {
-      return this.$store.state.articles
-    }
-  },
   components: { NewsCard },
-  methods: {
-  updateMessage: async function () {
-    this.message = 'updated'
-    console.log(this.$el.textContent) // => 'not updated'
-    await this.$nextTick()
-    console.log(this.$el.textContent) // => 'updated'
-  }
-  }    
-}
+  data: () => ({
+    descriptionLimit: 60,
+    entries: [],
+    isLoading: false,
+    model: null,
+    search: "",
+    souurceId: "",
+  }),
+  mounted() {
+    this.$store.dispatch("loadNewsHeadlines");
+  },
+  computed: {
+    getArticles() {
+      return this.$store.getters.newsHeadlines;
+    },
+  },
+};
 </script>
-
-<style>
-
-</style>
