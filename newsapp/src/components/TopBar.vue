@@ -13,7 +13,7 @@
           item-value="API"
           label="News"
           placeholder="Start typing to Search"
-          prepend-icon="mdi-database-search"
+          prepend-icon="mdi-newspaper"
           return-object
           outlined
         ></v-autocomplete>
