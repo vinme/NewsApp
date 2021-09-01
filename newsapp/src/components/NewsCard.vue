@@ -23,9 +23,9 @@
             >
     <v-icon>mdi-arrow-right</v-icon>
     </v-btn>
-    <v-card-title><a :href="'#/newsdetail/'+article.title">{{article.title | excerpt}}</a></v-card-title>
+    <v-card-title><a :href="article.url">{{article.title | excerpt}}</a></v-card-title>
     <transition name="slide-fade">
-        <v-card-subtitle v-if="hover"><a :href="'#/newsdetail/'+article.title">{{article.description}}</a></v-card-subtitle>
+        <v-card-subtitle v-if="hover"><a :href="article.url">{{article.description}}</a></v-card-subtitle>
         </transition>
 
     </v-img>
@@ -38,15 +38,15 @@
       >
         Edit
       </v-btn>
-
+    <a>
       <v-btn
         color="orange"
         text
-        :to="'/newsdetail/'+this.article.title"
+        :href="this.article.url"
       >
         Open
       </v-btn>
-     
+     </a>
     </v-card-actions>
 
 <edit-headline

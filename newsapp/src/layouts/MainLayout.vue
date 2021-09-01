@@ -1,32 +1,10 @@
 <template>
   <v-app id="inspire">
 
-    <v-app-bar flat height="100" app color="white">
-    <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
-        <v-layout align-center>
-        <v-flex>
-            <v-text-field
-            color="grey"
-            placeholder="Search"
-            class="mt-7"
-            flat
-            solo-inverted
-            prepend-inner-icon="mdi-magnify"
-            />
-        </v-flex>
-
-        <v-btn height="45" class="mx-2 ml-4">
-            <v-icon> mdi-compare-vertical </v-icon>
-        </v-btn>
-        <v-btn height="45" class="ml-2" dark>
-            <v-icon> mdi-plus </v-icon>
-        </v-btn>
-        </v-layout>
-    </v-app-bar>
-
-
+<top-bar></top-bar>
     <v-navigation-drawer 
     v-model="drawer"
+    :drawer="drawer"
     app
     >
       <v-list-item>
@@ -70,7 +48,6 @@
 
     <v-main>
       <!--  -->
-    
     <router-view :apiKey="apiKey"></router-view>
     <footer-view></footer-view>
     </v-main>
@@ -80,11 +57,13 @@
 </template>
 
 <script>
+import TopBar from '../components/TopBar.vue'
 import HomePage from '../views/Home.vue'
 import FooterView from './FooterView.vue'
+
 export default {
-    props: ['apiKey'],
-    components: { HomePage, FooterView },
+    props: ['apiKey', 'drawer'],
+    components: { HomePage, FooterView, TopBar },
 
     data: () => ({ 
         drawer: null,
