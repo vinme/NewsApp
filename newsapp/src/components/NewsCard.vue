@@ -16,8 +16,8 @@
       <v-btn color="#dce0e6" text top right absolute>
         <v-icon>mdi-arrow-right</v-icon>
       </v-btn>
-      <v-card-subtitle>{{ article.publishedAt | formatDate }}</v-card-subtitle>
-      <v-card-title>
+      <v-card-subtitle class="dateOnCard">{{ article.publishedAt | formatDate }}</v-card-subtitle>
+      <v-card-title class="margin-top-0" >
         <a :href="article.url">{{ article.title | excerpt }}</a></v-card-title
       >
       <transition name="slide-fade">
@@ -107,5 +107,14 @@ a:link,
 a:visited {
   color: #ffffff;
   text-decoration: none;
+}
+.dateOnCard{
+    font-weight: normal;
+    font-size: 12px;
+    text-decoration: italic;
+    padding-bottom: 0px;
+}
+.margin-top-0{
+    padding-top: 0px;
 }
 </style>
