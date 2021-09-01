@@ -1,5 +1,4 @@
 <template>
-  <v-row>
     <v-app-bar flat height="100" app color="white">
       <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
       <v-col class="d-flex" col="12" md="8" sm="8" xs="6">
@@ -30,7 +29,6 @@
         ></v-select>
       </v-col>
     </v-app-bar>
-  </v-row>
 </template>
 
 <script>
